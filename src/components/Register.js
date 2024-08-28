@@ -21,7 +21,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/register', {
+      const response = await fetch('http://localhost:5000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,6 +30,7 @@ const Register = () => {
       });
 
       if (response.ok) {
+        console.log(response);
         // Registration successful
         navigate('/'); // Redirect to the homepage
         setSuccessMessage('Registration successful');

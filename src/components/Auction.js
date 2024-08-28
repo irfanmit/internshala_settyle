@@ -17,7 +17,7 @@ const AuctionPage = () => {
       return;
     }
 
-    fetch(`http://localhost:8080/fetchSingleProducts/${productId}`)
+    fetch(`http://localhost:5000/fetchSingleProducts/${productId}`)
       .then((response) => response.json())
       .then((data) => {
         setProduct(data); // Update the product state with the fetched data
@@ -33,7 +33,7 @@ const AuctionPage = () => {
       return;
     }
 
-    const newSocket = io('http://localhost:8080');
+    const newSocket = io('http://localhost:5000');
 
     newSocket.on('connect', () => {
       console.log('Connected to the Socket.io server');
@@ -97,7 +97,7 @@ setCurrentBid(bidAmount)
         <div className="auction-card">
           <h3>{product.name}</h3>
           <p>{product.description}</p>
-          <img src={`http://localhost:8080/images/${product.imageUrl}`} alt={`Product ${product.name}`} />
+          <img src={`http://localhost:5000/images/${product.imageUrl}`} alt={`Product ${product.name}`} />
           <div className="current-bid">Current Bid: ${currentBid}</div>
           <form onSubmit={handleBidSubmit}>
             <input

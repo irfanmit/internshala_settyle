@@ -15,7 +15,7 @@ const HomePage = () => {
     if (storedToken) {
       try {
         // Replace this with your authentication status check API endpoint
-        fetch('http://localhost:8080/auth', {
+        fetch('http://localhost:5000/auth', {
           method: 'GET',
           headers: {
             Authorization: 'Bearer ' + storedToken, // Use 'Bearer' and add a space before the token

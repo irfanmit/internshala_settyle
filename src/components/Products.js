@@ -17,7 +17,7 @@ const ProductsPage = () => {
   useEffect(() => {
     const fetchData = async () => { // Define an async function
       try {
-        const response = await fetch('http://localhost:8080/getProducts');
+        const response = await fetch('http://localhost:5000/GetProducts');
         // console.log(response.products);
         if (response.ok) {
           const productData = await response.json();
@@ -52,7 +52,7 @@ const ProductsPage = () => {
       formData.append('price', productData.price);
       formData.append('image', productData.image); // Add the image
 
-      const response = await fetch('http://localhost:8080/addProducts', {
+      const response = await fetch('http://localhost:5000/addProducts', {
         method: 'POST',
         body: formData, // Use the FormData object
       });
@@ -122,7 +122,7 @@ const ProductsPage = () => {
           {/* Map through the products and render each one */}
           {products.map((product, index) => (
             <div className="product-card" key={index}>
-              <img src={`http://localhost:8080/images/${product.imageUrl}`} />
+              <img src={`http://localhost:5000/images/${product.imageUrl}`} />
               <h3>{product.name}</h3>
               <p>{product.description}</p>
               <p>Price: ${product.price}</p>
